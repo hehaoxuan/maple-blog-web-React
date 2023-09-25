@@ -1,0 +1,62 @@
+// .item{
+//     padding: 16px 8px 16px 8px;
+//     flex: 4 2;
+
+//     .meta{
+//         padding: 0;
+//     }
+// }
+
+// .card{
+//     min-width: 1rem;
+//     max-width: 5rem;
+//     @media screen and (min-width:480px) {
+//         width: 1rem;
+//     }
+//     @media screen and (min-width:960px) {
+//         width: 2rem;
+//     }
+//     @media screen and (min-width:1080px) {
+//         width: 3rem;
+//     }
+
+//     @media screen and (min-width:2160px) {
+//         width: 5rem;
+//     }
+// }
+
+.img {
+  min-height: 1rem;
+  max-height: 5rem;
+
+  @media screen and (min-height:480px) {
+    height: 0.8rem;
+  }
+
+  @media screen and (min-height:960px) {
+    height: 2.5rem;
+  }
+
+  @media screen and (min-height:1080px) {
+    height: 3rem;
+  }
+
+  @media screen and (min-width:2160px) {
+    height: 3.5rem;
+  }
+}
+
+.img:hover{
+  cursor: pointer;
+}
+
+.card:hover {
+  // cursor: pointer;
+}
+
+:global(.ant-card-meta-description) {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

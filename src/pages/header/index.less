@@ -1,0 +1,42 @@
+.Search {
+  position: absolute;
+  top: 15px;
+  right: 0.4rem;
+  max-width: 300px;
+  display: flex;
+  justify-content: end;
+  @media screen and (max-width:660px) {
+    width: 100px;
+
+    :global(.ant-input-group) {
+      width: 50%;
+      right: 0;
+    }
+  }
+
+  @media screen and (min-width:1000px) {
+    width: 300px;
+
+    :global(.ant-input-group) {
+      width: 200%;
+        right: 200px;
+    }
+  }
+}
+
+.Menu {
+  position: relative;
+}
+
+
+.Login{
+  margin: 0 10px;
+}
+
+
+.ICon{
+  width: 35px;
+  height: 35px;
+  margin: 0 10px;
+  font-size: 25px !important;
+}

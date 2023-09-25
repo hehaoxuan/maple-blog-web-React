@@ -1,0 +1,69 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+section{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100vh;
+    /* background: linear-gradient(#6d00a9,#190027); */
+}
+
+section .rocket{
+    pointer-events: none;
+    position: absolute;
+    top:60%;
+    left:15%;
+    width: 200px;
+    height: 200px;
+    font-size: 8em;
+    text-align: center;
+    line-height: 200px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 55px rgba(255,255,255,.1);
+    animation: move 5s linear infinite;
+}
+
+
+@keyframes flue{
+    0%{
+        background: #00abff;
+        transform: rotate(45deg) scaleY(1);
+    }
+    25%{
+        background: #ffff90;
+    }
+    50%{
+        background: #f100ff;
+        transform: rotate(45deg) scaleY(2);
+    }
+    75%{
+        background: #09dbff;
+    }
+    100%{
+        background: #00abff;
+        transform: rotate(45deg) scaleY(1);
+    }
+}
+
+@keyframes move{
+    0%{
+        transform: translate(-20px,-20px);
+    }
+    25%{
+        transform: translate(20px,0px);
+    }
+    50%{
+        transform: translate(-20px,20px);
+    }
+    75%{
+        transform: translate(20px,0px);
+    }
+    100%{
+        transform: translate(-20px,-20px);
+    }
+}
