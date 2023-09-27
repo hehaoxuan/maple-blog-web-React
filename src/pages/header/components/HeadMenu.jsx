@@ -34,6 +34,11 @@ export default class headMenu extends Component {
         to: '/about',
         name: '关于',
       },
+      {
+        key: 'upload',
+        to: '/upload',
+        name: '上传',
+      },
     ],
     sourceCenterList: [
       {

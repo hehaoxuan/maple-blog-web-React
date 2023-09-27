@@ -17,9 +17,10 @@ import { Upload, message } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import UploadDrag from '@/pages/content/upload/components/UploadDrag';
 import style from './UploadFrom.less';
-import { upload } from '@/api/video';
+import { upload } from '@/api/blog';
 import { withRouter } from 'umi';
-import { setCookie, getCookie, delCookie } from '@/tools/storage';
+import { getCookie, delCookie } from '@/tools/storage';
+import { uploadImgUrl } from '@/api/blog';
 
 // 获取base64url
 function getBase64(img: any, callback: Function) {
@@ -173,7 +174,7 @@ export default withRouter(
                 className="avatar-uploader"
                 showUploadList={false}
                 maxCount={1}
-                action="http://localhost:8081/video/uploadIMG"
+                action={uploadImgUrl}
                 beforeUpload={beforeUpload}
                 onChange={this.handleChange}
                 data={(value) => value}

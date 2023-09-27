@@ -6,13 +6,13 @@ import {
 import { Button, Radio, message } from 'antd';
 import { setCookie, getCookie } from '@/tools/storage';
 import style from './index.less';
-import { videoAuditing } from '@/api/video';
+import { videoAuditing } from '@/api/blog';
 import { useState, useEffect } from 'react';
-import { withRouter,useHistory} from 'umi';
-import useRoot from '@/hooks/useRoot'
+import { withRouter, useHistory } from 'umi';
+import useRoot from '@/hooks/useRoot';
 function detailTool(props) {
-  const history =useHistory()
-  const isRoot = useRoot()
+  const history = useHistory();
+  const isRoot = useRoot();
   const { url, uid, auditing, handleAuditing } = props;
 
   const handleClick = () => {
@@ -25,10 +25,11 @@ function detailTool(props) {
     videoAuditing(uid, !auditing);
     handleAuditing(!auditing);
     message.success('操作成功');
-    if(!auditing){ //点击确定审核
-      history.push('/auditing')
-    }else{
-      history.push('/video')
+    if (!auditing) {
+      //点击确定审核
+      history.push('/auditing');
+    } else {
+      history.push('/video');
     }
   };
 

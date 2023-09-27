@@ -1,6 +1,6 @@
 import PageHead from '@/common/pageHead';
 import ContextList from '@/pages/content/center/components/contextList';
-import { getAllAuditing } from '@/api/video';
+import { getAllAuditing } from '@/api/blog';
 import { useState, useEffect } from 'react';
 
 const home = () => {

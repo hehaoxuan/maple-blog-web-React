@@ -2,10 +2,10 @@
 import React, { Component, createContext } from 'react';
 import { Card, Avatar, Popconfirm, message } from 'antd';
 import style from './index.less';
-import { computeCover } from '@/api/video.js';
+import { computeCover } from '@/api/blog.js';
 import { useState, useEffect, useContext } from 'react';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
-import { deleteVideo } from '@/api/video';
+import { deleteVideo } from '@/api/blog';
 import { setCookie, getCookie } from '@/tools/storage';
 import useRoot from '@/hooks/useRoot';
 import { withRouter, useHistory } from 'umi';

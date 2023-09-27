@@ -17,10 +17,10 @@ import { Upload, message } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import UploadDrag from '@/pages/content/upload/components/UploadDrag';
 import style from './UploadFrom.less';
-import { editVideo } from '@/api/video';
+import { editVideo } from '@/api/blog';
 import { withRouter } from 'umi';
 import { setCookie, getCookie, delCookie } from '@/tools/storage';
-import { computeCover } from '@/api/video.js';
+import { computeCover, uploadVideoUrl } from '@/api/blog.js';
 
 // 获取base64url
 function getBase64(img, callback) {
@@ -77,8 +77,14 @@ export default withRouter(
     };
 
     componentDidUpdate() {
-      if (this.props.detailData && this.props.detailData.videoUid && !this.state.imageUrl) {
-        this.setState({ imageUrl: computeCover(this.props.detailData.videoUid) });
+      if (
+        this.props.detailData &&
+        this.props.detailData.videoUid &&
+        !this.state.imageUrl
+      ) {
+        this.setState({
+          imageUrl: computeCover(this.props.detailData.videoUid),
+        });
         this.forceUpdate();
       }
 
@@ -86,16 +92,16 @@ export default withRouter(
       this.editForm.current.setFieldsValue({
         title: this.props.detailData.title,
         describe: this.props.detailData.describe,
-        type:this.props.detailData.type
+        type: this.props.detailData.type,
       });
     }
 
     // 上传事件
     onFinish = (values) => {
       // 将之前的数据进行合并
-      let preData = JSON.parse(JSON.stringify(this.props.detailData))
-      let newData  = { ...this.state, ...values }
-      newData.videoUid = preData.videoUid
+      let preData = JSON.parse(JSON.stringify(this.props.detailData));
+      let newData = { ...this.state, ...values };
+      newData.videoUid = preData.videoUid;
       this.setState(newData);
       console.log(this.state);
       editVideo(this.state).then((res) => {
@@ -200,7 +206,7 @@ export default withRouter(
                 className="avatar-uploader"
                 showUploadList={false}
                 maxCount={1}
-                action="http://localhost:8081/video/uploadIMG"
+                action={uploadVideoUrl}
                 beforeUpload={beforeUpload}
                 onChange={this.handleChange}
                 data={(value) => value}
@@ -219,9 +225,7 @@ export default withRouter(
               name="title"
               rules={[{ required: true, message: '请输入标题' }]}
             >
-              <Input
-                placeholder="为你的素材取一个响亮的名字"
-              />
+              <Input placeholder="为你的素材取一个响亮的名字" />
             </Form.Item>
 
             {/* 素材描述 */}

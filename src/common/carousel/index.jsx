@@ -1,5 +1,5 @@
 import { Carousel, Typography } from 'antd';
-import { getAllAuditing, computeCover } from '@/api/video';
+import { getAllAuditing, computeCover } from '@/api/blog';
 import style from './index.less';
 import { useState, useEffect } from 'react';
 const { Title } = Typography;

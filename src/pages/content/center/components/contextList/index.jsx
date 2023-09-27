@@ -7,7 +7,7 @@ import { withRouter } from 'umi';
 import { useEffect, useState } from 'react';
 import { Row, Col, List } from 'antd';
 import Empty from '@/common/noData';
-import { computeCover } from '@/api/video';
+import { computeCover } from '@/api/blog';
 
 export default withRouter(({ history, location, match, listData }) => {
   // 接收id 生成不同的数据

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import ContextList from '@/pages/content/center/components/contextList';
 import PageHead from '@/common/pageHead';
-import { getAll, getAllAuditing } from '@/api/video';
+import { getAll, getAllAuditing } from '@/api/blog';
 import { useState, useEffect, useCallback } from 'react';
 
 const index = () => {

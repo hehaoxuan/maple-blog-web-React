@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PageHead from '@/common/pageHead';
 import { withRouter } from 'umi';
 import ContextList from '@/pages/content/center/components/contextList';
-import { search } from '@/api/video';
+import { search } from '@/api/blog';
 import Empty from '@/common/noData';
 
 export default withRouter(
@@ -37,7 +37,7 @@ export default withRouter(
               subTitle: `搜索关于 "${this.state.key}" 的内容`,
             }}
           />
-            <ContextList listData={this.state.listData} />
+          <ContextList listData={this.state.listData} />
         </div>
       );
     }

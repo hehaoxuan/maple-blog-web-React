@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
+import { uploadVideoUrl } from '@/api/blog';
 
 const { Dragger } = Upload;
 import style from './UploadDrag.less';
@@ -9,7 +10,7 @@ export default function UploadDrag(props) {
     accept: 'video/*',
     name: 'file',
     multiple: true,
-    action: 'http://localhost:8081/video/uploadVideo',
+    action: uploadVideoUrl,
     beforeUpload: (file) => {
       const backName = file.name.split('.');
       const isVideo = backName[backName.length - 1] === ('mp4' || 'MP4');
