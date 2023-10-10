@@ -12,29 +12,13 @@ import { computeCover } from '@/api/blog';
 export default withRouter(({ history, location, match, listData }) => {
   // 接收id 生成不同的数据
   const handleDetail = (params) => {
-    history.push({ pathname: `/video/${params}`, params: params });
+    history.push({ pathname: `/blog/${params}`, params: params });
   };
 
   const [itemList, setItem] = useState([]);
 
   let list;
   if (listData && listData.length >= 1) {
-    list = (
-      <Row gutter={[16, 24]}>
-        {itemList &&
-          itemList.map((item) => (
-            <Col span={6}>
-              <ContentItem
-                key={item._id}
-                title={item.title}
-                description={item.describe}
-                uid={item.videoUid}
-                onClick={() => handleDetail(item.videoUid)}
-              />
-            </Col>
-          ))}
-      </Row>
-    );
     list = (
       <List
         itemLayout="vertical"
@@ -57,7 +41,8 @@ export default withRouter(({ history, location, match, listData }) => {
                 ''
               )
             }
-            onClick={() => handleDetail(item.videoUid)}
+            //  todo: 升级ts 使用dto字段
+            onClick={() => handleDetail(item.blogId)}
             className={style.item}
           >
             <List.Item.Meta
@@ -73,6 +58,7 @@ export default withRouter(({ history, location, match, listData }) => {
     list = <Empty />;
   }
 
+  console.log(listData);
   useEffect(() => {
     setItem(listData);
   }, [listData]);

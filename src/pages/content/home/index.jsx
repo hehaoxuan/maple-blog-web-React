@@ -18,7 +18,7 @@ const home = () => {
       <PageHead
         navData={{
           title: '博客主页',
-          subTitle: 'never too old to learn',
+          subTitle: 'never too old to learn', //todo:获取动态名人名言
         }}
         noShowBack={true}
       />

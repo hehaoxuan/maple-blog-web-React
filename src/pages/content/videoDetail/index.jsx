@@ -21,12 +21,12 @@ const videoDtail = () => {
 
     getVideoDeatil(uid).then((res) => {
       setPageHeadData({
-        title: res[0].title,
+        title: res[0]?.title || '',
       });
       setDetailData({
-        article: res[0].describe,
+        article: res[0]?.describe || '',
       });
-      setAuditing(res[0].auditing);
+      setAuditing(res[0]?.auditing) || '';
     });
   }, []);
 

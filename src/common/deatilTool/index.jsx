@@ -49,14 +49,12 @@ function detailTool(props) {
         <Button
           type="defulat"
           shape="round"
-          icon={
-            JSON.parse(auditing) ? <StopOutlined /> : <CheckCircleOutlined />
-          }
+          icon={!auditing ? <CheckCircleOutlined /> : <StopOutlined />}
           size={'large'}
           className={style.icon}
           onClick={() => handleAuditingClick()}
         >
-          {JSON.parse(auditing) ? '撤销审核' : '确定审核'}
+          {!auditing ? '确定审核' : '撤销审核'}
         </Button>
       ) : (
         ''
